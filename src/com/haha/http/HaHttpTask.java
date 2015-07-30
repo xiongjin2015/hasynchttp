@@ -30,7 +30,7 @@ public abstract class HaHttpTask implements Runnable {
 				if(maxRetryCount<=0){
 					throw e;
 				}else{
-					if(handler ==null){
+					if(handler !=null){
 						String msg = e.getMessage();
 						if(msg == null){
 							msg = "null, unknown error";
