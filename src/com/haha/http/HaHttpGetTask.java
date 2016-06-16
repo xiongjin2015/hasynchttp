@@ -35,7 +35,7 @@ public class HaHttpGetTask extends HaHttpTask {
             connection.setReadTimeout(HaHttpCfg.DEFAULT_READ_TIMEOUT);
 
             connection.setRequestProperty("Accept-Encoding", "gzip,deflate");
-            connection.setRequestProperty("User-Agent", "hah http/2.0");
+            connection.setRequestProperty("User-Agent", "haha http/2.0");
             connection.setRequestProperty("Connection", "Close");
 
             int code = connection.getResponseCode();

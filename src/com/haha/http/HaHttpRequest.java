@@ -8,7 +8,7 @@ import java.net.URL;
  * data structure for http request
  * 
  * @author xj
- *
+ * 
  */
 public class HaHttpRequest {
 
@@ -58,27 +58,47 @@ public class HaHttpRequest {
 		this.localDir = localDir;
 		this.fileName = fileName;
 	}
-	
-	public String getUrlString(){
+
+	public String getUrlString() {
 		return url.toString();
 	}
-	
+
+	public String getProtocol() {
+		return url.getProtocol();
+	}
+
+	public String getHost() {
+		return url.getHost();
+	}
+
+	public int getPort() {
+		return url.getPort();
+	}
+
+	public String getPath() {
+		return url.getPath();
+	}
+
+	public String getQuery() {
+		return url.getQuery();
+	}
+
 	public String getLocalDir() {
-		if(localDir == null)
+		if (localDir == null)
 			return "";
-		
+
 		return localDir;
 	}
 
 	public String getFileName() {
 		return fileName;
 	}
-	
-	public String getLocalFile(){
-		if(localDir != null && fileName != null){
+
+	public String getLocalFile() {
+		if (localDir != null && fileName != null) {
 			return localDir + File.separator + fileName;
 		}
-		
+
 		return null;
 	}
 
