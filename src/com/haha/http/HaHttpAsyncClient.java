@@ -57,6 +57,22 @@ public class HaHttpAsyncClient implements HaHttpClient {
 	}
 
 	@Override
+	public void post(String remotePath, HaHttpParams params, String name,
+			String localFile, HaHttpHandler handler) throws Exception {
+		HaHttpTask task = new HaFilePostTask(remotePath, params, name,
+				localFile, HaHttpCfg.DEFAULT_MAX_RETRY_COUNT, handler);
+		this.executorService.execute(task);
+	}
+
+	@Override
+	public void post(String remotePath, String name, String localFile,
+			HaHttpHandler handler) throws Exception {
+		HaHttpTask task = new HaFilePostTask(remotePath, null, name, localFile,
+				HaHttpCfg.DEFAULT_MAX_RETRY_COUNT, handler);
+		this.executorService.execute(task);
+	}
+
+	@Override
 	public void destroy() {
 		if (this.executorService != null) {
 			this.executorService.shutdown();

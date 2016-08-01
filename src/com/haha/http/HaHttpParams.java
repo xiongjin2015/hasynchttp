@@ -12,7 +12,7 @@ import java.util.Map;
  * class for wrapperring request parameters
  * 
  * @author xj
- *
+ * 
  */
 public class HaHttpParams {
 
@@ -31,6 +31,10 @@ public class HaHttpParams {
 				params.add(new Param(key, value));
 		}
 		return this;
+	}
+
+	List<Param> getParams() {
+		return params;
 	}
 
 	public HaHttpParams put(Map<String, String> paramMap) {
@@ -105,7 +109,7 @@ public class HaHttpParams {
 		return sb.toString();
 	}
 
-	private final static class Param {
+	final static class Param {
 
 		private String key;
 		private String value;
@@ -113,6 +117,14 @@ public class HaHttpParams {
 		public Param(String key, String value) {
 			this.key = key;
 			this.value = value;
+		}
+
+		public String getKey() {
+			return key;
+		}
+
+		public String getValue() {
+			return value;
 		}
 
 	}
